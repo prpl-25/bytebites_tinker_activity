@@ -39,6 +39,21 @@ class Menu:
     def filter_by_category(self, category: str) -> list:
         return [item for item in self.__items if item.get_category().lower() == category.lower()]
 
+    def filter_by_max_price(self, max_price: float) -> list:
+        return [item for item in self.__items if item.get_price() <= max_price]
+
+    def filter_by_min_rating(self, min_rating: float) -> list:
+        return [item for item in self.__items if item.get_popularity_rating() >= min_rating]
+
+    def sort_by_price(self, ascending: bool = True) -> list:
+        return sorted(self.__items, key=lambda item: item.get_price(), reverse=not ascending)
+
+    def sort_by_popularity(self, ascending: bool = False) -> list:
+        return sorted(self.__items, key=lambda item: item.get_popularity_rating(), reverse=not ascending)
+
+    def sort_by_name(self) -> list:
+        return sorted(self.__items, key=lambda item: item.get_name())
+
     def get_all_items(self) -> list:
         return list(self.__items)
 
@@ -55,6 +70,9 @@ class Transaction:
 
     def compute_total(self) -> float:
         return sum(item.get_price() for item in self.__selected_items)
+
+    def get_item_count(self) -> int:
+        return len(self.__selected_items)
 
     def get_selected_items(self) -> list:
         return list(self.__selected_items)
