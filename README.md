@@ -1,6 +1,5 @@
 ## TF Summary:
 
-The summary should be 5–7 sentences covering:
 The core concept students needed to understand:
 Core concept students need to understand is how systems are designed - focusing on the requirements to figure out which attributes to model, and then describing the required parameters and functions to build a system that meets all the requirements.
 
